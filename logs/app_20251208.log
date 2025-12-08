@@ -1,0 +1,217 @@
+{"asctime": "2025-12-08 10:50:33", "name": "root", "levelname": "INFO", "message": "============================================================"}
+{"asctime": "2025-12-08 10:50:33", "name": "root", "levelname": "INFO", "message": "Logging initialized"}
+{"asctime": "2025-12-08 10:50:33", "name": "root", "levelname": "INFO", "message": "Log level: INFO"}
+{"asctime": "2025-12-08 10:50:33", "name": "root", "levelname": "INFO", "message": "Log file: logs\\app_20251208.log"}
+{"asctime": "2025-12-08 10:50:33", "name": "root", "levelname": "INFO", "message": "============================================================"}
+{"asctime": "2025-12-08 10:50:33", "name": "app", "levelname": "INFO", "message": "Database initialized"}
+{"asctime": "2025-12-08 10:50:33", "name": "app", "levelname": "INFO", "message": "Routes registered"}
+{"asctime": "2025-12-08 10:50:33", "name": "app", "levelname": "INFO", "message": "FastAPI application created successfully"}
+{"asctime": "2025-12-08 10:50:36", "name": "root", "levelname": "INFO", "message": "============================================================"}
+{"asctime": "2025-12-08 10:50:36", "name": "root", "levelname": "INFO", "message": "Logging initialized"}
+{"asctime": "2025-12-08 10:50:36", "name": "root", "levelname": "INFO", "message": "Log level: INFO"}
+{"asctime": "2025-12-08 10:50:36", "name": "root", "levelname": "INFO", "message": "Log file: logs\\app_20251208.log"}
+{"asctime": "2025-12-08 10:50:36", "name": "root", "levelname": "INFO", "message": "============================================================"}
+{"asctime": "2025-12-08 10:50:36", "name": "app", "levelname": "INFO", "message": "Database initialized"}
+{"asctime": "2025-12-08 10:50:36", "name": "app", "levelname": "INFO", "message": "Routes registered"}
+{"asctime": "2025-12-08 10:50:36", "name": "app", "levelname": "INFO", "message": "FastAPI application created successfully"}
+{"asctime": "2025-12-08 10:50:36", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:36", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:36", "name": "root", "levelname": "INFO", "message": "============================================================"}
+{"asctime": "2025-12-08 10:50:36", "name": "root", "levelname": "INFO", "message": "Logging initialized"}
+{"asctime": "2025-12-08 10:50:36", "name": "root", "levelname": "INFO", "message": "Log level: INFO"}
+{"asctime": "2025-12-08 10:50:36", "name": "root", "levelname": "INFO", "message": "Log file: logs\\app_20251208.log"}
+{"asctime": "2025-12-08 10:50:36", "name": "root", "levelname": "INFO", "message": "============================================================"}
+{"asctime": "2025-12-08 10:50:36", "name": "app", "levelname": "INFO", "message": "Database initialized"}
+{"asctime": "2025-12-08 10:50:36", "name": "app", "levelname": "INFO", "message": "Routes registered"}
+{"asctime": "2025-12-08 10:50:36", "name": "app", "levelname": "INFO", "message": "FastAPI application created successfully"}
+{"asctime": "2025-12-08 10:50:37", "name": "watchfiles.main", "levelname": "INFO", "message": "5 changes detected"}
+{"asctime": "2025-12-08 10:50:37", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:37", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:38", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:38", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:38", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:39", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:39", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:40", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:40", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:41", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:41", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:41", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:42", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:42", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:43", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:43", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:43", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:44", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:44", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:45", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:45", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:45", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:46", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:46", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:47", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:47", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:48", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:48", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:48", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:49", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:49", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:49", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:50", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:50", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:51", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:51", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:52", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:52", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:52", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:53", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:53", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:54", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:54", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:54", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:55", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:55", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:56", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:56", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:56", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:57", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:57", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:58", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:58", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:58", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:59", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:50:59", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:00", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:00", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:00", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:01", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:01", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:02", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:02", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:02", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:03", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:03", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:04", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:04", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:04", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:05", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:05", "name": "watchfiles.main", "levelname": "INFO", "message": "1 change detected"}
+{"asctime": "2025-12-08 10:51:20", "name": "root", "levelname": "INFO", "message": "============================================================"}
+{"asctime": "2025-12-08 10:51:20", "name": "root", "levelname": "INFO", "message": "Logging initialized"}
+{"asctime": "2025-12-08 10:51:20", "name": "root", "levelname": "INFO", "message": "Log level: INFO"}
+{"asctime": "2025-12-08 10:51:20", "name": "root", "levelname": "INFO", "message": "Log file: logs\\app_20251208.log"}
+{"asctime": "2025-12-08 10:51:20", "name": "root", "levelname": "INFO", "message": "============================================================"}
+{"asctime": "2025-12-08 10:51:20", "name": "app", "levelname": "INFO", "message": "Database initialized"}
+{"asctime": "2025-12-08 10:51:20", "name": "app", "levelname": "INFO", "message": "Routes registered"}
+{"asctime": "2025-12-08 10:51:20", "name": "app", "levelname": "INFO", "message": "FastAPI application created successfully"}
+{"asctime": "2025-12-08 10:51:20", "name": "root", "levelname": "INFO", "message": "============================================================"}
+{"asctime": "2025-12-08 10:51:20", "name": "root", "levelname": "INFO", "message": "Logging initialized"}
+{"asctime": "2025-12-08 10:51:20", "name": "root", "levelname": "INFO", "message": "Log level: INFO"}
+{"asctime": "2025-12-08 10:51:20", "name": "root", "levelname": "INFO", "message": "Log file: logs\\app_20251208.log"}
+{"asctime": "2025-12-08 10:51:20", "name": "root", "levelname": "INFO", "message": "============================================================"}
+{"asctime": "2025-12-08 10:51:20", "name": "app", "levelname": "INFO", "message": "Database initialized"}
+{"asctime": "2025-12-08 10:51:20", "name": "app", "levelname": "INFO", "message": "Routes registered"}
+{"asctime": "2025-12-08 10:51:20", "name": "app", "levelname": "INFO", "message": "FastAPI application created successfully"}
+{"asctime": "2025-12-08 10:51:38", "name": "app", "levelname": "INFO", "message": "Request: GET /docs"}
+{"asctime": "2025-12-08 10:51:38", "name": "app", "levelname": "INFO", "message": "Response: GET /docs | Status: 200 | Duration: 3ms"}
+{"asctime": "2025-12-08 10:51:49", "name": "app", "levelname": "INFO", "message": "Request: GET /openapi.json"}
+{"asctime": "2025-12-08 10:51:49", "name": "app", "levelname": "INFO", "message": "Response: GET /openapi.json | Status: 200 | Duration: 19ms"}
+{"asctime": "2025-12-08 10:52:08", "name": "app", "levelname": "INFO", "message": "Request: POST /api/workflow/create"}
+{"asctime": "2025-12-08 10:52:09", "name": "app.routes.workflow_routes", "levelname": "INFO", "message": "Workflow creation request: 'Send an email when a form is submitted...'"}
+{"asctime": "2025-12-08 10:52:09", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "BEGIN (implicit)"}
+{"asctime": "2025-12-08 10:52:09", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "INSERT INTO conversations (id, created_at, updated_at, summary, last_summarized_at, user_id, is_deleted) VALUES (?, ?, ?, ?, ?, ?, ?)"}
+{"asctime": "2025-12-08 10:52:09", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[generated in 0.00125s] ('749b991c-2b45-414f-a790-c8b9c2825f67', '2025-12-08 05:22:09.802343', '2025-12-08 05:22:09.802343', None, None, None, 0)"}
+{"asctime": "2025-12-08 10:52:09", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "COMMIT"}
+{"asctime": "2025-12-08 10:52:09", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "BEGIN (implicit)"}
+{"asctime": "2025-12-08 10:52:09", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT conversations.id, conversations.created_at, conversations.updated_at, conversations.summary, conversations.last_summarized_at, conversations.user_id, conversations.is_deleted \nFROM conversations \nWHERE conversations.id = ?"}
+{"asctime": "2025-12-08 10:52:09", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[generated in 0.00119s] ('749b991c-2b45-414f-a790-c8b9c2825f67',)"}
+{"asctime": "2025-12-08 10:52:09", "name": "app.routes.workflow_routes", "levelname": "INFO", "message": "Created new conversation: 749b991c-2b45-414f-a790-c8b9c2825f67"}
+{"asctime": "2025-12-08 10:52:10", "name": "httpx", "levelname": "INFO", "message": "HTTP Request: POST http://localhost:6333/collections/tool_operations/points/search \"HTTP/1.1 200 OK\""}
+{"asctime": "2025-12-08 10:52:10", "name": "app.routes.workflow_routes", "levelname": "INFO", "message": "Retrieved 0 tools from Qdrant"}
+{"asctime": "2025-12-08 10:52:10", "name": "app.routes.workflow_routes", "levelname": "INFO", "message": "Result status: no_match"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT conversations.id AS conversations_id, conversations.created_at AS conversations_created_at, conversations.updated_at AS conversations_updated_at, conversations.summary AS conversations_summary, conversations.last_summarized_at AS conversations_last_summarized_at, conversations.user_id AS conversations_user_id, conversations.is_deleted AS conversations_is_deleted \nFROM conversations \nWHERE conversations.id = ? AND conversations.is_deleted = 0\n LIMIT ? OFFSET ?"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[generated in 0.00225s] ('749b991c-2b45-414f-a790-c8b9c2825f67', 1, 0)"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "UPDATE conversations SET updated_at=? WHERE conversations.id = ?"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[generated in 0.00085s] ('2025-12-08 05:22:10.945084', '749b991c-2b45-414f-a790-c8b9c2825f67')"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "INSERT INTO messages (id, conversation_id, role, content, timestamp, tools_retrieved, similarity_scores) VALUES (?, ?, ?, ?, ?, ?, ?)"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[generated in 0.00154s] ('3877f54c-49b0-4b93-b930-d42584e49a91', '749b991c-2b45-414f-a790-c8b9c2825f67', 'USER', 'Send an email when a form is submitted', '2025-12-08 05:22:10.953079', '[]', '{}')"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "COMMIT"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "BEGIN (implicit)"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT messages.id, messages.conversation_id, messages.role, messages.content, messages.timestamp, messages.tools_retrieved, messages.similarity_scores \nFROM messages \nWHERE messages.id = ?"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[generated in 0.00128s] ('3877f54c-49b0-4b93-b930-d42584e49a91',)"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT count(*) AS count_1 \nFROM (SELECT messages.id AS messages_id, messages.conversation_id AS messages_conversation_id, messages.role AS messages_role, messages.content AS messages_content, messages.timestamp AS messages_timestamp, messages.tools_retrieved AS messages_tools_retrieved, messages.similarity_scores AS messages_similarity_scores \nFROM messages \nWHERE messages.conversation_id = ?) AS anon_1"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[generated in 0.00160s] ('749b991c-2b45-414f-a790-c8b9c2825f67',)"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT conversations.id AS conversations_id, conversations.created_at AS conversations_created_at, conversations.updated_at AS conversations_updated_at, conversations.summary AS conversations_summary, conversations.last_summarized_at AS conversations_last_summarized_at, conversations.user_id AS conversations_user_id, conversations.is_deleted AS conversations_is_deleted \nFROM conversations \nWHERE conversations.id = ? AND conversations.is_deleted = 0\n LIMIT ? OFFSET ?"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 0.04477s ago] ('749b991c-2b45-414f-a790-c8b9c2825f67', 1, 0)"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT conversations.id AS conversations_id, conversations.created_at AS conversations_created_at, conversations.updated_at AS conversations_updated_at, conversations.summary AS conversations_summary, conversations.last_summarized_at AS conversations_last_summarized_at, conversations.user_id AS conversations_user_id, conversations.is_deleted AS conversations_is_deleted \nFROM conversations \nWHERE conversations.id = ? AND conversations.is_deleted = 0\n LIMIT ? OFFSET ?"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 0.04909s ago] ('749b991c-2b45-414f-a790-c8b9c2825f67', 1, 0)"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "UPDATE conversations SET updated_at=? WHERE conversations.id = ?"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 0.04852s ago] ('2025-12-08 05:22:10.993286', '749b991c-2b45-414f-a790-c8b9c2825f67')"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "INSERT INTO messages (id, conversation_id, role, content, timestamp, tools_retrieved, similarity_scores) VALUES (?, ?, ?, ?, ?, ?, ?)"}
+{"asctime": "2025-12-08 10:52:10", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 0.04722s ago] ('e76dfb32-98d9-4282-9690-a583b13167b4', '749b991c-2b45-414f-a790-c8b9c2825f67', 'ASSISTANT', 'No tools found matching your request.', '2025-12-08 05:22:10.998818', 'null', 'null')"}
+{"asctime": "2025-12-08 10:52:11", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "COMMIT"}
+{"asctime": "2025-12-08 10:52:11", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "BEGIN (implicit)"}
+{"asctime": "2025-12-08 10:52:11", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT messages.id, messages.conversation_id, messages.role, messages.content, messages.timestamp, messages.tools_retrieved, messages.similarity_scores \nFROM messages \nWHERE messages.id = ?"}
+{"asctime": "2025-12-08 10:52:11", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 0.04402s ago] ('e76dfb32-98d9-4282-9690-a583b13167b4',)"}
+{"asctime": "2025-12-08 10:52:11", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT count(*) AS count_1 \nFROM (SELECT messages.id AS messages_id, messages.conversation_id AS messages_conversation_id, messages.role AS messages_role, messages.content AS messages_content, messages.timestamp AS messages_timestamp, messages.tools_retrieved AS messages_tools_retrieved, messages.similarity_scores AS messages_similarity_scores \nFROM messages \nWHERE messages.conversation_id = ?) AS anon_1"}
+{"asctime": "2025-12-08 10:52:11", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 0.03676s ago] ('749b991c-2b45-414f-a790-c8b9c2825f67',)"}
+{"asctime": "2025-12-08 10:52:11", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT conversations.id AS conversations_id, conversations.created_at AS conversations_created_at, conversations.updated_at AS conversations_updated_at, conversations.summary AS conversations_summary, conversations.last_summarized_at AS conversations_last_summarized_at, conversations.user_id AS conversations_user_id, conversations.is_deleted AS conversations_is_deleted \nFROM conversations \nWHERE conversations.id = ? AND conversations.is_deleted = 0\n LIMIT ? OFFSET ?"}
+{"asctime": "2025-12-08 10:52:11", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 0.07879s ago] ('749b991c-2b45-414f-a790-c8b9c2825f67', 1, 0)"}
+{"asctime": "2025-12-08 10:52:11", "name": "app.routes.workflow_routes", "levelname": "INFO", "message": "No tools matched (completed in 2.69s)"}
+{"asctime": "2025-12-08 10:52:11", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "ROLLBACK"}
+{"asctime": "2025-12-08 10:52:11", "name": "app", "levelname": "INFO", "message": "Response: POST /api/workflow/create | Status: 200 | Duration: 2701ms"}
+{"asctime": "2025-12-08 10:53:02", "name": "app", "levelname": "INFO", "message": "Request: POST /api/workflow/create"}
+{"asctime": "2025-12-08 10:53:03", "name": "app.routes.workflow_routes", "levelname": "INFO", "message": "Workflow creation request: 'Get all the slack channels...'"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "BEGIN (implicit)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "INSERT INTO conversations (id, created_at, updated_at, summary, last_summarized_at, user_id, is_deleted) VALUES (?, ?, ?, ?, ?, ?, ?)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 53.47s ago] ('09dc3cbe-1663-4e70-a0db-a46bb170f2aa', '2025-12-08 05:23:03.272863', '2025-12-08 05:23:03.272863', None, None, None, 0)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "COMMIT"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "BEGIN (implicit)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT conversations.id, conversations.created_at, conversations.updated_at, conversations.summary, conversations.last_summarized_at, conversations.user_id, conversations.is_deleted \nFROM conversations \nWHERE conversations.id = ?"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 53.45s ago] ('09dc3cbe-1663-4e70-a0db-a46bb170f2aa',)"}
+{"asctime": "2025-12-08 10:53:03", "name": "app.routes.workflow_routes", "levelname": "INFO", "message": "Created new conversation: 09dc3cbe-1663-4e70-a0db-a46bb170f2aa"}
+{"asctime": "2025-12-08 10:53:03", "name": "httpx", "levelname": "INFO", "message": "HTTP Request: POST http://localhost:6333/collections/tool_operations/points/search \"HTTP/1.1 200 OK\""}
+{"asctime": "2025-12-08 10:53:03", "name": "app.routes.workflow_routes", "levelname": "INFO", "message": "Retrieved 0 tools from Qdrant"}
+{"asctime": "2025-12-08 10:53:03", "name": "app.routes.workflow_routes", "levelname": "INFO", "message": "Result status: no_match"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT conversations.id AS conversations_id, conversations.created_at AS conversations_created_at, conversations.updated_at AS conversations_updated_at, conversations.summary AS conversations_summary, conversations.last_summarized_at AS conversations_last_summarized_at, conversations.user_id AS conversations_user_id, conversations.is_deleted AS conversations_is_deleted \nFROM conversations \nWHERE conversations.id = ? AND conversations.is_deleted = 0\n LIMIT ? OFFSET ?"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.8s ago] ('09dc3cbe-1663-4e70-a0db-a46bb170f2aa', 1, 0)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "UPDATE conversations SET updated_at=? WHERE conversations.id = ?"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.79s ago] ('2025-12-08 05:23:03.739330', '09dc3cbe-1663-4e70-a0db-a46bb170f2aa')"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "INSERT INTO messages (id, conversation_id, role, content, timestamp, tools_retrieved, similarity_scores) VALUES (?, ?, ?, ?, ?, ?, ?)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.79s ago] ('5a76e358-b670-44a5-8fb6-66b83de6b30b', '09dc3cbe-1663-4e70-a0db-a46bb170f2aa', 'USER', 'Get all the slack channels', '2025-12-08 05:23:03.742637', '[]', '{}')"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "COMMIT"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "BEGIN (implicit)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT messages.id, messages.conversation_id, messages.role, messages.content, messages.timestamp, messages.tools_retrieved, messages.similarity_scores \nFROM messages \nWHERE messages.id = ?"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.79s ago] ('5a76e358-b670-44a5-8fb6-66b83de6b30b',)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT count(*) AS count_1 \nFROM (SELECT messages.id AS messages_id, messages.conversation_id AS messages_conversation_id, messages.role AS messages_role, messages.content AS messages_content, messages.timestamp AS messages_timestamp, messages.tools_retrieved AS messages_tools_retrieved, messages.similarity_scores AS messages_similarity_scores \nFROM messages \nWHERE messages.conversation_id = ?) AS anon_1"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.79s ago] ('09dc3cbe-1663-4e70-a0db-a46bb170f2aa',)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT conversations.id AS conversations_id, conversations.created_at AS conversations_created_at, conversations.updated_at AS conversations_updated_at, conversations.summary AS conversations_summary, conversations.last_summarized_at AS conversations_last_summarized_at, conversations.user_id AS conversations_user_id, conversations.is_deleted AS conversations_is_deleted \nFROM conversations \nWHERE conversations.id = ? AND conversations.is_deleted = 0\n LIMIT ? OFFSET ?"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.83s ago] ('09dc3cbe-1663-4e70-a0db-a46bb170f2aa', 1, 0)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT conversations.id AS conversations_id, conversations.created_at AS conversations_created_at, conversations.updated_at AS conversations_updated_at, conversations.summary AS conversations_summary, conversations.last_summarized_at AS conversations_last_summarized_at, conversations.user_id AS conversations_user_id, conversations.is_deleted AS conversations_is_deleted \nFROM conversations \nWHERE conversations.id = ? AND conversations.is_deleted = 0\n LIMIT ? OFFSET ?"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.83s ago] ('09dc3cbe-1663-4e70-a0db-a46bb170f2aa', 1, 0)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "UPDATE conversations SET updated_at=? WHERE conversations.id = ?"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.83s ago] ('2025-12-08 05:23:03.772404', '09dc3cbe-1663-4e70-a0db-a46bb170f2aa')"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "INSERT INTO messages (id, conversation_id, role, content, timestamp, tools_retrieved, similarity_scores) VALUES (?, ?, ?, ?, ?, ?, ?)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.82s ago] ('82145475-ef79-412b-a8bf-50c2fc7a2691', '09dc3cbe-1663-4e70-a0db-a46bb170f2aa', 'ASSISTANT', 'No tools found matching your request.', '2025-12-08 05:23:03.775424', 'null', 'null')"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "COMMIT"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "BEGIN (implicit)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT messages.id, messages.conversation_id, messages.role, messages.content, messages.timestamp, messages.tools_retrieved, messages.similarity_scores \nFROM messages \nWHERE messages.id = ?"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.82s ago] ('82145475-ef79-412b-a8bf-50c2fc7a2691',)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT count(*) AS count_1 \nFROM (SELECT messages.id AS messages_id, messages.conversation_id AS messages_conversation_id, messages.role AS messages_role, messages.content AS messages_content, messages.timestamp AS messages_timestamp, messages.tools_retrieved AS messages_tools_retrieved, messages.similarity_scores AS messages_similarity_scores \nFROM messages \nWHERE messages.conversation_id = ?) AS anon_1"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.81s ago] ('09dc3cbe-1663-4e70-a0db-a46bb170f2aa',)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT conversations.id AS conversations_id, conversations.created_at AS conversations_created_at, conversations.updated_at AS conversations_updated_at, conversations.summary AS conversations_summary, conversations.last_summarized_at AS conversations_last_summarized_at, conversations.user_id AS conversations_user_id, conversations.is_deleted AS conversations_is_deleted \nFROM conversations \nWHERE conversations.id = ? AND conversations.is_deleted = 0\n LIMIT ? OFFSET ?"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[cached since 52.85s ago] ('09dc3cbe-1663-4e70-a0db-a46bb170f2aa', 1, 0)"}
+{"asctime": "2025-12-08 10:53:03", "name": "app.routes.workflow_routes", "levelname": "INFO", "message": "No tools matched (completed in 0.88s)"}
+{"asctime": "2025-12-08 10:53:03", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "ROLLBACK"}
+{"asctime": "2025-12-08 10:53:03", "name": "app", "levelname": "INFO", "message": "Response: POST /api/workflow/create | Status: 200 | Duration: 888ms"}
+{"asctime": "2025-12-08 10:53:48", "name": "app", "levelname": "INFO", "message": "Request: GET /health"}
+{"asctime": "2025-12-08 10:53:49", "name": "httpx", "levelname": "INFO", "message": "HTTP Request: GET http://localhost:6333/collections/tool_operations \"HTTP/1.1 200 OK\""}
+{"asctime": "2025-12-08 10:53:49", "name": "app.routes.health_routes", "levelname": "WARNING", "message": "Qdrant health check: Failed"}
+{"asctime": "2025-12-08 10:53:49", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "BEGIN (implicit)"}
+{"asctime": "2025-12-08 10:53:49", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "SELECT 1"}
+{"asctime": "2025-12-08 10:53:49", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "[generated in 0.00040s] ()"}
+{"asctime": "2025-12-08 10:53:49", "name": "sqlalchemy.engine.Engine", "levelname": "INFO", "message": "ROLLBACK"}
+{"asctime": "2025-12-08 10:53:49", "name": "app", "levelname": "INFO", "message": "Response: GET /health | Status: 200 | Duration: 407ms"}
+{"asctime": "2025-12-08 10:54:50", "name": "app", "levelname": "INFO", "message": "Request: GET /api/tools"}
+{"asctime": "2025-12-08 10:54:50", "name": "app.routes.health_routes", "levelname": "INFO", "message": "Returned 5 tools"}
+{"asctime": "2025-12-08 10:54:50", "name": "app", "levelname": "INFO", "message": "Response: GET /api/tools | Status: 200 | Duration: 20ms"}
