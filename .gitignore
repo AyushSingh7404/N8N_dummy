@@ -3,3 +3,5 @@ env.list
 venv/
 __pycache__/
 data/
+output_example.json
+logs/

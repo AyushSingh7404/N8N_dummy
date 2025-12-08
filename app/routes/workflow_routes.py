@@ -75,13 +75,40 @@ async def create_workflow(
             conversation_history = []
             logger.info(f"Created new conversation: {conversation_id}")
         
-        # Step 2: Generate embedding for query
+        # # Step 2: Generate embedding for query
+        # try:
+        #     query_embedding = embedding_service.generate_embedding(
+        #         request.query,
+        #         input_type="query"
+        #     )
+        #     logger.debug(f"Generated query embedding: {len(query_embedding)} dimensions")
+        
+        # Step 2: Build the semantic query text (optionally include recent history)
+        if conversation_history:
+            # Take the last couple of user messages for context
+            recent_user_messages = [
+                m.get("content", "")
+                for m in conversation_history
+                if m.get("role") == "user"
+            ][-2:]
+            history_text = "\n".join([m for m in recent_user_messages if m])
+            if history_text:
+                semantic_query = history_text + "\nCurrent request: " + request.query
+            else:
+                semantic_query = request.query
+        else:
+            semantic_query = request.query
+
+        # Step 2: Generate embedding for (history + current query)
         try:
             query_embedding = embedding_service.generate_embedding(
-                request.query,
+                semantic_query,
                 input_type="query"
             )
-            logger.debug(f"Generated query embedding: {len(query_embedding)} dimensions")
+            logger.debug(
+                f"Generated query embedding from semantic_query "
+                f"(len={len(semantic_query)} chars, {len(query_embedding)} dims)"
+            )
         except VoyageAIException as e:
             logger.error(f"Embedding generation failed: {e}")
             raise HTTPException(

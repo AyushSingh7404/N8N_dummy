@@ -254,12 +254,15 @@ Summary:"""
     
     def _build_workflow_prompt(self, user_query: str, tools_context: str) -> str:
         """Build prompt for workflow generation."""
-        return f"""You are a workflow automation expert. Generate a workflow JSON based on the user's request.
+        return f"""You are a workflow generator.
+Available tools: {tools_context}
 
-User request: "{user_query}"
+IMPORTANT: Only use tools from the list above. Do not invent tools.
+If the user mentions "form submission" or "webhook", use a manual trigger 
+or the closest available tool.
 
-Available tools:
-{tools_context}
+User request: {user_query}
+Output ONLY valid JSON using the available tools.
 
 Generate a workflow JSON with this structure:
 {{

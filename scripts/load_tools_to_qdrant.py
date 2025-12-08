@@ -233,74 +233,138 @@ Type: {operation.get('operationType', 'action')}
         if batch_texts:
             self._process_batch(batch_texts, batch_metadata)
     
+    # def _process_batch(self, texts: List[str], metadata_list: List[Dict]) -> None:
+    #     """
+    #     Process a batch of operations.
+        
+    #     Args:
+    #         texts: List of chunk contents
+    #         metadata_list: List of metadata dictionaries
+    #     """
+    #     try:
+    #         # Generate embeddings
+    #         embeddings = self.generate_embeddings(texts)
+            
+    #         # Create points for Qdrant
+    #         points = []
+    #         for i, (embedding, meta) in enumerate(zip(embeddings, metadata_list)):
+    #             # Generate UUID for point ID (Qdrant requirement)
+    #             import uuid
+    #             point_id = str(uuid.uuid4())
+                
+    #             # Add original ID to metadata
+    #             meta['metadata']['original_id'] = meta['id']
+                
+    #             point = PointStruct(
+    #                 id=point_id,
+    #                 vector=embedding,
+    #                 payload=meta['metadata']
+    #             )
+    #             points.append(point)
+            
+    #         # Upsert to Qdrant
+    #         self.qdrant_client.upsert(
+    #             collection_name=self.settings.qdrant_collection_name,
+    #             points=points
+    #         )
+            
+    #         self.processed_count += len(points)
+    #         print(f"  ✓ Processed batch of {len(points)} operations (Total: {self.processed_count})")
+            
+    #     except Exception as e:
+    #         print(f"  ✗ Batch processing failed: {e}")
+    #         self.failed_count += len(texts)
+    
     def _process_batch(self, texts: List[str], metadata_list: List[Dict]) -> None:
         """
         Process a batch of operations.
-        
-        Args:
-            texts: List of chunk contents
-            metadata_list: List of metadata dictionaries
         """
         try:
             # Generate embeddings
             embeddings = self.generate_embeddings(texts)
-            
+
             # Create points for Qdrant
             points = []
-            for i, (embedding, meta) in enumerate(zip(embeddings, metadata_list)):
-                # Generate UUID for point ID (Qdrant requirement)
+            for embedding, meta in zip(embeddings, metadata_list):
                 import uuid
                 point_id = str(uuid.uuid4())
-                
-                # Add original ID to metadata
-                meta['metadata']['original_id'] = meta['id']
-                
+
+                # Use the existing original_id we stored earlier
+                meta["metadata"]["original_id"] = meta["original_id"]
+
                 point = PointStruct(
                     id=point_id,
                     vector=embedding,
-                    payload=meta['metadata']
+                    payload=meta["metadata"],
                 )
                 points.append(point)
-            
+
             # Upsert to Qdrant
             self.qdrant_client.upsert(
                 collection_name=self.settings.qdrant_collection_name,
-                points=points
+                points=points,
             )
-            
+
             self.processed_count += len(points)
             print(f"  ✓ Processed batch of {len(points)} operations (Total: {self.processed_count})")
-            
+
         except Exception as e:
             print(f"  ✗ Batch processing failed: {e}")
             self.failed_count += len(texts)
+
+    # def verify_ingestion(self) -> bool:
+    #     """
+    #     Verify that all operations were ingested.
+        
+    #     Returns:
+    #         bool: True if verification passed
+    #     """
+    #     collection_name = self.settings.qdrant_collection_name
+        
+    #     try:
+    #         collection_info = self.qdrant_client.get_collection(collection_name)
+    #         actual_count = collection_info.points_count
+            
+    #         print(f"\n{'=' * 60}")
+    #         print(f"Verification:")
+    #         print(f"  Expected: {self.processed_count} operations")
+    #         print(f"  Actual: {actual_count} points in Qdrant")
+    #         print(f"  Failed: {self.failed_count} operations")
+            
+    #         if actual_count == self.processed_count:
+    #             print(f"✓ All operations successfully ingested")
+    #             return True
+    #         else:
+    #             print(f"⚠ Mismatch detected!")
+    #             return False
+            
+    #     except Exception as e:
+    #         print(f"✗ Verification failed: {e}")
+    #         return False
     
     def verify_ingestion(self) -> bool:
-        """
-        Verify that all operations were ingested.
-        
-        Returns:
-            bool: True if verification passed
-        """
         collection_name = self.settings.qdrant_collection_name
-        
+
         try:
-            collection_info = self.qdrant_client.get_collection(collection_name)
-            actual_count = collection_info.points_count
-            
+            count_result = self.qdrant_client.count(
+                collection_name=collection_name,
+                exact=True,
+            )
+            actual_count = count_result.count
+
             print(f"\n{'=' * 60}")
-            print(f"Verification:")
+            print("Verification:")
             print(f"  Expected: {self.processed_count} operations")
             print(f"  Actual: {actual_count} points in Qdrant")
             print(f"  Failed: {self.failed_count} operations")
-            
+
             if actual_count == self.processed_count:
-                print(f"✓ All operations successfully ingested")
+                print("✓ All operations successfully ingested")
                 return True
             else:
-                print(f"⚠ Mismatch detected!")
+                print("⚠ Mismatch detected!")
                 return False
-            
+
         except Exception as e:
             print(f"✗ Verification failed: {e}")
             return False

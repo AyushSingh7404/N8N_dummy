@@ -107,26 +107,90 @@ class QdrantService:
                         f"Qdrant search failed after {self.max_retries} attempts: {str(e)}"
                     )
     
-    def filter_by_similarity_threshold(
-        self, 
-        results: List[Dict[str, Any]]
-    ) -> Dict[str, Any]:
+    # def filter_by_similarity_threshold(
+    #     self, 
+    #     results: List[Dict[str, Any]]
+    # ) -> Dict[str, Any]:
+    #     """
+    #     Filter results based on similarity thresholds.
+        
+    #     Determines if results are:
+    #     - "confident": High similarity score, clear match
+    #     - "ambiguous": Multiple similar scores, unclear which to use
+    #     - "no_match": All scores below threshold
+        
+    #     Args:
+    #         results: Search results from search_tools()
+            
+    #     Returns:
+    #         Dict with:
+    #             - status: "confident" | "ambiguous" | "no_match"
+    #             - results: Filtered results
+    #             - message: Optional clarification message
+    #     """
+    #     if not results:
+    #         return {
+    #             "status": "no_match",
+    #             "results": [],
+    #             "message": "No tools found matching your request."
+    #         }
+        
+    #     # Get thresholds from settings
+    #     threshold_high = self.settings.similarity_threshold_high
+    #     threshold_low = self.settings.similarity_threshold_low
+    #     ambiguity_threshold = self.settings.ambiguity_threshold
+        
+    #     top_score = results[0]["score"]
+        
+    #     # Check if top score is below low threshold (no match)
+    #     if top_score < threshold_low:
+    #         return {
+    #             "status": "no_match",
+    #             "results": [],
+    #             "message": (
+    #                 f"No tools found matching your request. "
+    #                 f"Available categories: email, communication, storage, productivity"
+    #             )
+    #         }
+        
+    #     # Check for ambiguity (top results have similar scores)
+    #     if len(results) >= 2:
+    #         second_score = results[1]["score"]
+    #         score_diff = top_score - second_score
+            
+    #         if score_diff < ambiguity_threshold:
+    #             # Ambiguous - multiple tools match equally well
+    #             top_3 = results[:3]
+    #             tool_names = [r["tool_display_name"] for r in top_3]
+                
+    #             return {
+    #                 "status": "ambiguous",
+    #                 "results": top_3,
+    #                 "message": (
+    #                     f"I found multiple tools that could work. "
+    #                     f"Did you mean: {', '.join(tool_names)}?"
+    #                 ),
+    #                 "suggestions": [r["tool_slug"] for r in top_3]
+    #             }
+        
+    #     # Confident match
+    #     confidence_level = "high" if top_score >= threshold_high else "medium"
+        
+    #     return {
+    #         "status": "confident",
+    #         "results": results,
+    #         "confidence_level": confidence_level,
+    #         "top_score": top_score
+    #     }
+    
+    def filter_by_similarity_threshold(self, results: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
         Filter results based on similarity thresholds.
-        
+
         Determines if results are:
         - "confident": High similarity score, clear match
-        - "ambiguous": Multiple similar scores, unclear which to use
+        - "ambiguous": Multiple similar scores *from different tools*
         - "no_match": All scores below threshold
-        
-        Args:
-            results: Search results from search_tools()
-            
-        Returns:
-            Dict with:
-                - status: "confident" | "ambiguous" | "no_match"
-                - results: Filtered results
-                - message: Optional clarification message
         """
         if not results:
             return {
@@ -134,48 +198,52 @@ class QdrantService:
                 "results": [],
                 "message": "No tools found matching your request."
             }
-        
+
         # Get thresholds from settings
         threshold_high = self.settings.similarity_threshold_high
         threshold_low = self.settings.similarity_threshold_low
         ambiguity_threshold = self.settings.ambiguity_threshold
-        
+
         top_score = results[0]["score"]
-        
-        # Check if top score is below low threshold (no match)
+
+        # 1) Top score too low → no_match
         if top_score < threshold_low:
             return {
                 "status": "no_match",
                 "results": [],
                 "message": (
-                    f"No tools found matching your request. "
-                    f"Available categories: email, communication, storage, productivity"
+                    "No tools found matching your request. "
+                    "Available categories: email, communication, storage, productivity"
                 )
             }
-        
-        # Check for ambiguity (top results have similar scores)
+
+        # 2) Ambiguity only if *different tools* are close
         if len(results) >= 2:
             second_score = results[1]["score"]
             score_diff = top_score - second_score
-            
-            if score_diff < ambiguity_threshold:
+
+            # Check tool diversity among top hits
+            top_tool_slugs = {r.get("tool_slug") for r in results[:3]}
+            same_tool = len(top_tool_slugs) == 1
+
+            if score_diff < ambiguity_threshold and not same_tool:
                 # Ambiguous - multiple tools match equally well
                 top_3 = results[:3]
                 tool_names = [r["tool_display_name"] for r in top_3]
-                
+
                 return {
                     "status": "ambiguous",
                     "results": top_3,
                     "message": (
-                        f"I found multiple tools that could work. "
+                        "I found multiple tools that could work. "
                         f"Did you mean: {', '.join(tool_names)}?"
                     ),
                     "suggestions": [r["tool_slug"] for r in top_3]
                 }
-        
-        # Confident match
+
+        # 3) Otherwise → confident match (Gmail-only case falls here)
         confidence_level = "high" if top_score >= threshold_high else "medium"
-        
+
         return {
             "status": "confident",
             "results": results,
