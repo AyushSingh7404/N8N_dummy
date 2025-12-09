@@ -108,25 +108,26 @@ class QdrantService:
                     )
     
     # def filter_by_similarity_threshold(
-    #     self, 
+    #     self,
     #     results: List[Dict[str, Any]]
     # ) -> Dict[str, Any]:
     #     """
-    #     Filter results based on similarity thresholds.
-        
-    #     Determines if results are:
-    #     - "confident": High similarity score, clear match
-    #     - "ambiguous": Multiple similar scores, unclear which to use
-    #     - "no_match": All scores below threshold
-        
+    #     Filter results based on similarity thresholds with smart tool grouping.
+
+    #     Logic:
+    #     - "no_match": top score below low threshold
+    #     - "ambiguous": multiple different tools have similar top scores
+    #     - "confident": one tool clearly dominates (even if it has multiple operations)
+
     #     Args:
     #         results: Search results from search_tools()
-            
+
     #     Returns:
     #         Dict with:
     #             - status: "confident" | "ambiguous" | "no_match"
     #             - results: Filtered results
     #             - message: Optional clarification message
+    #             - primary_tool: The primary tool slug (if confident)
     #     """
     #     if not results:
     #         return {
@@ -134,63 +135,124 @@ class QdrantService:
     #             "results": [],
     #             "message": "No tools found matching your request."
     #         }
-        
-    #     # Get thresholds from settings
+
+    #     # Thresholds from settings
     #     threshold_high = self.settings.similarity_threshold_high
     #     threshold_low = self.settings.similarity_threshold_low
     #     ambiguity_threshold = self.settings.ambiguity_threshold
-        
+
+    #     # Global top score
     #     top_score = results[0]["score"]
-        
-    #     # Check if top score is below low threshold (no match)
+
+    #     # If everything is too weak → no match
     #     if top_score < threshold_low:
     #         return {
     #             "status": "no_match",
     #             "results": [],
     #             "message": (
-    #                 f"No tools found matching your request. "
-    #                 f"Available categories: email, communication, storage, productivity"
+    #                 "No tools found matching your request. "
+    #                 "Available categories: email, communication, storage, productivity"
     #             )
     #         }
-        
-    #     # Check for ambiguity (top results have similar scores)
-    #     if len(results) >= 2:
-    #         second_score = results[1]["score"]
-    #         score_diff = top_score - second_score
-            
-    #         if score_diff < ambiguity_threshold:
-    #             # Ambiguous - multiple tools match equally well
-    #             top_3 = results[:3]
-    #             tool_names = [r["tool_display_name"] for r in top_3]
-                
-    #             return {
-    #                 "status": "ambiguous",
-    #                 "results": top_3,
-    #                 "message": (
-    #                     f"I found multiple tools that could work. "
-    #                     f"Did you mean: {', '.join(tool_names)}?"
-    #                 ),
-    #                 "suggestions": [r["tool_slug"] for r in top_3]
-    #             }
-        
-    #     # Confident match
+
+    #     # --- Group results by tool slug ---
+    #     tools_grouped: Dict[str, List[Dict[str, Any]]] = {}
+    #     for result in results:
+    #         tool_slug = result.get("tool_slug")
+    #         if not tool_slug:
+    #             # Just in case, skip malformed entries
+    #             continue
+    #         tools_grouped.setdefault(tool_slug, []).append(result)
+
+    #     # Best (highest-scoring) operation per tool
+    #     tool_best_scores: Dict[str, Dict[str, Any]] = {}
+    #     for tool_slug, operations in tools_grouped.items():
+    #         best_op = max(operations, key=lambda x: x["score"])
+    #         tool_best_scores[tool_slug] = best_op
+
+    #     # Sort tools by their best score
+    #     sorted_tools = sorted(
+    #         tool_best_scores.items(),
+    #         key=lambda x: x[1]["score"],
+    #         reverse=True
+    #     )
+
+    #     # ✅ If there is only ONE distinct tool in the top results,
+    #     #    we treat it as CONFIDENT, even if it has multiple operations.
+    #     if len(sorted_tools) == 1:
+    #         top_tool_slug, top_tool_result = sorted_tools[0]
+    #         top_tool_all_operations = tools_grouped[top_tool_slug]
+    #         confidence_level = "high" if top_score >= threshold_high else "medium"
+
+    #         return {
+    #             "status": "confident",
+    #             # Return all operations for that tool so Claude can pick the right one
+    #             "results": top_tool_all_operations,
+    #             "confidence_level": confidence_level,
+    #             "top_score": top_tool_result["score"],
+    #             "primary_tool": top_tool_slug,
+    #             "tool_operations_count": len(top_tool_all_operations)
+    #         }
+
+    #     # --- More than one tool: check ambiguity between best tools ---
+    #     top_tool_slug, top_tool_result = sorted_tools[0]
+    #     second_tool_slug, second_tool_result = sorted_tools[1]
+
+    #     score_diff = top_tool_result["score"] - second_tool_result["score"]
+
+    #     # If two different tools are too close → ambiguous
+    #     if score_diff < ambiguity_threshold:
+    #         top_unique_tools = sorted_tools[:3]  # up to top 3 tools
+    #         tool_names = [result["tool_display_name"] for _, result in top_unique_tools]
+    #         tool_slugs = [slug for slug, _ in top_unique_tools]
+
+    #         return {
+    #             "status": "ambiguous",
+    #             # Return the best operation for each of the top tools
+    #             "results": [result for _, result in top_unique_tools],
+    #             "message": (
+    #                 "I found multiple tools that could work. "
+    #                 f"Did you mean: {', '.join(tool_names)}?"
+    #             ),
+    #             "suggestions": tool_slugs
+    #         }
+
+    #     # Otherwise, one tool clearly dominates → confident
+    #     top_tool_all_operations = tools_grouped[top_tool_slug]
     #     confidence_level = "high" if top_score >= threshold_high else "medium"
-        
+
     #     return {
     #         "status": "confident",
-    #         "results": results,
+    #         # You can either pass only top_tool_all_operations or all results.
+    #         # I recommend only the winner's operations:
+    #         "results": top_tool_all_operations,
     #         "confidence_level": confidence_level,
-    #         "top_score": top_score
+    #         "top_score": top_tool_result["score"],
+    #         "primary_tool": top_tool_slug,
+    #         "tool_operations_count": len(top_tool_all_operations)
     #     }
     
-    def filter_by_similarity_threshold(self, results: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def filter_by_similarity_threshold(
+        self,
+        results: List[Dict[str, Any]]
+    ) -> Dict[str, Any]:
         """
         Filter results based on similarity thresholds.
 
-        Determines if results are:
-        - "confident": High similarity score, clear match
-        - "ambiguous": Multiple similar scores *from different tools*
-        - "no_match": All scores below threshold
+        Logic:
+        - "no_match": top score below low threshold
+        - otherwise: always "confident" and return the top results
+          (Claude can decide how to combine tools/operations)
+
+        Args:
+            results: Search results from search_tools()
+
+        Returns:
+            Dict with:
+                - status: "confident" | "no_match"
+                - results: Filtered results
+                - message: Optional clarification message
+                - top_score: score of the best match
         """
         if not results:
             return {
@@ -199,14 +261,14 @@ class QdrantService:
                 "message": "No tools found matching your request."
             }
 
-        # Get thresholds from settings
+        # Thresholds from settings
         threshold_high = self.settings.similarity_threshold_high
         threshold_low = self.settings.similarity_threshold_low
-        ambiguity_threshold = self.settings.ambiguity_threshold
 
+        # Top (global) score
         top_score = results[0]["score"]
 
-        # 1) Top score too low → no_match
+        # If top score is too low → treat as no match
         if top_score < threshold_low:
             return {
                 "status": "no_match",
@@ -217,39 +279,18 @@ class QdrantService:
                 )
             }
 
-        # 2) Ambiguity only if *different tools* are close
-        if len(results) >= 2:
-            second_score = results[1]["score"]
-            score_diff = top_score - second_score
-
-            # Check tool diversity among top hits
-            top_tool_slugs = {r.get("tool_slug") for r in results[:3]}
-            same_tool = len(top_tool_slugs) == 1
-
-            if score_diff < ambiguity_threshold and not same_tool:
-                # Ambiguous - multiple tools match equally well
-                top_3 = results[:3]
-                tool_names = [r["tool_display_name"] for r in top_3]
-
-                return {
-                    "status": "ambiguous",
-                    "results": top_3,
-                    "message": (
-                        "I found multiple tools that could work. "
-                        f"Did you mean: {', '.join(tool_names)}?"
-                    ),
-                    "suggestions": [r["tool_slug"] for r in top_3]
-                }
-
-        # 3) Otherwise → confident match (Gmail-only case falls here)
+        # Otherwise: treat as confident.
+        # We do NOT mark anything as "ambiguous" here – instead we let Claude
+        # see all retrieved tools and decide how to chain them in the workflow.
         confidence_level = "high" if top_score >= threshold_high else "medium"
 
         return {
             "status": "confident",
             "results": results,
             "confidence_level": confidence_level,
-            "top_score": top_score
+            "top_score": top_score,
         }
+
     
     def _build_filter(self, metadata_filter: Dict[str, Any]) -> Filter:
         """

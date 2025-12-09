@@ -34,7 +34,8 @@ class ClaudeService:
         self,
         user_query: str,
         retrieved_tools: List[Dict[str, Any]],
-        conversation_history: Optional[List[Dict[str, str]]] = None
+        conversation_history: Optional[List[Dict[str, str]]] = None,
+        existing_workflow: Optional[Dict[str, Any]] = None,   # NEW
     ) -> Dict[str, Any]:
         """
         Generate workflow JSON from user query and retrieved tools.
@@ -43,7 +44,7 @@ class ClaudeService:
             user_query: User's natural language request
             retrieved_tools: Tools retrieved from Qdrant
             conversation_history: Optional conversation history
-            
+            existing_workflow=existing_workflow,               # NEW
         Returns:
             Dict: Workflow JSON with nodes and connections
             
@@ -54,7 +55,11 @@ class ClaudeService:
         tools_context = self._format_tools_context(retrieved_tools)
         
         # Build prompt
-        prompt = self._build_workflow_prompt(user_query, tools_context)
+        prompt = self._build_workflow_prompt(
+            user_query=user_query,
+            tools_context=tools_context,
+            existing_workflow=existing_workflow        # NEW
+        )
         
         # Build messages array
         messages = []
@@ -252,44 +257,99 @@ Summary:"""
         
         return "\n".join(context_parts)
     
-    def _build_workflow_prompt(self, user_query: str, tools_context: str) -> str:
-        """Build prompt for workflow generation."""
-        return f"""You are a workflow generator.
-Available tools: {tools_context}
+    def _build_workflow_prompt(
+    self,
+    user_query: str,
+    tools_context: str,
+    existing_workflow: Optional[Dict[str, Any]] = None,
+) -> str:
+        """
+        Build prompt for workflow generation.
 
-IMPORTANT: Only use tools from the list above. Do not invent tools.
-If the user mentions "form submission" or "webhook", use a manual trigger 
-or the closest available tool.
+        If existing_workflow is provided, Claude should EDIT that workflow
+        instead of creating a completely new one.
+        """
+        # Base rules that apply in both cases
+        common_rules = f"""
+    Available tools: {tools_context}
 
-User request: {user_query}
-Output ONLY valid JSON using the available tools.
+    IMPORTANT:
+    - Only use tools from the list above. Do NOT invent new tools.
+    - Set node.type as "tool_slug.operation_slug" (e.g., "gmail.send-email").
+    - Use the most relevant tools from the list.
+    - Create unique node IDs (node1, node2, node3, ...).
+    - Fill parameters based on the user's request.
+    - If the user mentions specific values (emails, channel names, spreadsheet ranges, etc.),
+    include them in parameters.
+    - Output ONLY valid JSON. No markdown, no prose, no backticks.
+    """
 
-Generate a workflow JSON with this structure:
-{{
-  "nodes": [
+        # Case 1: NEW workflow (no existing_workflow yet)
+        if existing_workflow is None:
+            return f"""You are a workflow generator.
+
+    {common_rules}
+
+    User request:
+    {user_query}
+
+    Generate a NEW workflow JSON with this structure:
     {{
-      "id": "node1",
-      "type": "tool_slug.operation_slug",
-      "displayName": "Operation Display Name",
-      "parameters": {{
-        "param1": "value1"
-      }}
+    "nodes": [
+        {{
+        "id": "node1",
+        "type": "tool_slug.operation_slug",
+        "displayName": "Operation Display Name",
+        "parameters": {{
+            "param1": "value1"
+        }}
+        }}
+    ],
+    "connections": {{
+        "node1": {{"next": "node2"}}
     }}
-  ],
-  "connections": {{
-    "node1": {{"next": "node2"}}
-  }}
-}}
+    }}
 
-Rules:
-1. Use the most relevant tools from the list above
-2. Create unique node IDs (node1, node2, etc.)
-3. Set node type as "tool_slug.operation_slug" (e.g., "gmail.send-email")
-4. Fill parameters based on user's request
-5. Connect nodes in logical order
-6. If user mentions specific values (emails, channel names), include them in parameters
+    Rules:
+    1. Create a complete workflow for the user's request.
+    2. Connect nodes in a logical order.
+    3. If parallel actions are needed, you may let one node have "next" as a list, e.g. "next": ["node2", "node3"].
+    4. Do NOT mention any tools that are not in the available tools list.
 
-Output ONLY the JSON. No markdown, no explanations, no backticks."""
+    Return ONLY the JSON for the workflow.
+    """
+
+        # Case 2: EDIT an existing workflow
+        existing_json = json.dumps(existing_workflow, indent=2)
+
+        return f"""You are a workflow editor.
+
+    We already have an existing workflow. Your job is to UPDATE it to satisfy
+    the user's new instruction.
+
+    {common_rules}
+
+    Existing workflow JSON:
+    {existing_json}
+
+    User's new instruction:
+    {user_query}
+
+    Edit rules:
+    1. Keep the overall structure and intent of the existing workflow.
+    2. Preserve trigger nodes (e.g., webhook/form submission triggers) unless the user explicitly asks to remove them.
+    3. Modify, add, or remove nodes ONLY as needed to satisfy the new instruction.
+    4. If the user wants something done "in parallel", adjust the connections so that
+    the relevant nodes are executed in parallel (for example, one node having
+    "next": ["node2", "node3"]).
+    5. Keep node IDs stable when possible (if a node keeps the same purpose, keep its id).
+    6. If you remove a node, make sure connections remain valid and the workflow is still executable.
+
+    Output:
+    - Return the FULL UPDATED workflow as JSON (not just a diff).
+    - Do NOT include any text outside the JSON.
+    """
+
     
     def _build_stricter_prompt(self, user_query: str, tools_context: str) -> str:
         """Build stricter prompt for retry attempts."""

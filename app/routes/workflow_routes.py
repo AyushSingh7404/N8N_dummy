@@ -74,6 +74,10 @@ async def create_workflow(
             conversation_id = conversation_service.create_conversation()
             conversation_history = []
             logger.info(f"Created new conversation: {conversation_id}")
+
+        # NEW: load current workflow if it exists (for edit-style behavior)
+        existing_workflow = conversation_service.get_current_workflow(conversation_id)
+
         
         # # Step 2: Generate embedding for query
         # try:
@@ -99,7 +103,7 @@ async def create_workflow(
         else:
             semantic_query = request.query
 
-        # Step 2: Generate embedding for (history + current query)
+        # Step 3: Generate embedding for (history + current query)
         try:
             query_embedding = embedding_service.generate_embedding(
                 semantic_query,
@@ -116,7 +120,7 @@ async def create_workflow(
                 detail=f"Embedding service unavailable: {str(e)}"
             )
         
-        # Step 3: Search tools in Qdrant
+        # Step 3.5: Search tools in Qdrant
         try:
             search_results = qdrant_service.search_tools(query_embedding)
             logger.info(f"Retrieved {len(search_results)} tools from Qdrant")
@@ -207,7 +211,8 @@ async def create_workflow(
             workflow_json = claude_service.generate_workflow(
                 user_query=request.query,
                 retrieved_tools=filtered_results["results"],
-                conversation_history=conversation_history
+                conversation_history=conversation_history,
+                existing_workflow=existing_workflow
             )
             logger.info(f"Generated workflow with {len(workflow_json.get('nodes', []))} nodes")
         except BedrockException as e:
@@ -230,6 +235,50 @@ async def create_workflow(
                 status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
                 detail=f"Invalid workflow generated: {str(e)}"
             )
+        
+        # Step 5.5: Validate that all nodes use retrieved tools
+        try:
+            # Get list of valid tool slugs from retrieved results
+            valid_tool_slugs = set([r["tool_slug"] for r in filtered_results["results"]])
+            
+            # Check each node
+            invalid_nodes = []
+            for node in workflow_json.get("nodes", []):
+                node_type = node.get("type", "")
+                if "." in node_type:
+                    tool_slug = node_type.split(".")[0]
+                    if tool_slug not in valid_tool_slugs:
+                        invalid_nodes.append(node)
+                        logger.warning(f"Claude used non-retrieved tool: {tool_slug}")
+            
+            # If invalid nodes found, retry with stricter prompt
+            if invalid_nodes:
+                logger.warning(f"Re-prompting Claude due to {len(invalid_nodes)} invalid nodes")
+                
+                # Build stricter prompt
+                valid_tools_list = ", ".join([
+                    f"{r['tool_slug']}.{r['operation_slug']}" 
+                    for r in filtered_results["results"][:5]
+                ])
+                
+                strict_prompt = f"""CRITICAL: You can ONLY use these exact tools:
+        {valid_tools_list}
+
+        DO NOT use: manual.trigger, form.trigger, webhook.trigger, or any other tools.
+
+        User request: {request.query}
+
+        Generate workflow using ONLY the tools listed above."""
+                
+                # Retry workflow generation
+                workflow_json = claude_service.generate_workflow(
+                    user_query=strict_prompt,
+                    retrieved_tools=filtered_results["results"],
+                    conversation_history=conversation_history
+                )
+                
+        except Exception as e:
+            logger.error(f"Workflow validation failed: {e}")
         
         # Step 6: Save to database
         try:
